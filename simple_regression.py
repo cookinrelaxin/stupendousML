@@ -30,25 +30,25 @@ def get_residual_sum_of_squares(input_feature, output, intercept, slope):
 def inverse_regression_predictions(output, intercept, slope):
 	return (output - intercept) / slope
 
-# house_data = read_csv('kc_house_data.csv')
-# train_data,test_data = (house_data[:int(len(house_data) * .8)],house_data[int(len(house_data) * .8):])
+house_data = read_csv('kc_house_data.csv')
+train_data,test_data = (house_data[:int(len(house_data) * .8)],house_data[int(len(house_data) * .8):])
 
-# sqft_vals = [float(point['sqft_living']) for point in train_data]
-# price_vals = [float(point['price']) for point in train_data]
+sqft_vals = [float(point['sqft_living']) for point in train_data]
+price_vals = [float(point['price']) for point in train_data]
 
-# intercept,slope = simple_regression(sqft_vals, price_vals)
-#print 'attributes: ', [attr for attr in train_data[0].keys()] 
-#print intercept,slope
-# print get_regression_predictions([2650], intercept, slope)
+intercept,slope = simple_regression(sqft_vals, price_vals)
+print 'attributes: ', [attr for attr in train_data[0].keys()] 
+print intercept,slope
+print get_regression_predictions([2650], intercept, slope)
 
-# plt.scatter(sqft_vals, price_vals)
-# plt.plot([0, 14000], [intercept, slope * 14000], 'k-')
-# 
-# plt.ylim(0,max(price_vals))
-# plt.xlim(0,max(sqft_vals))
-# 
-# plt.xlabel('sqft')
-# plt.ylabel('price USD')
-# plt.title('sqft vs. price')
-# plt.show()
+plt.scatter(sqft_vals, price_vals)
+plt.plot([0, 14000], [intercept, slope * 14000], 'k-')
+
+plt.ylim(0,max(price_vals))
+plt.xlim(0,max(sqft_vals))
+
+plt.xlabel('sqft')
+plt.ylabel('price USD')
+plt.title('sqft vs. price')
+plt.show()
 
